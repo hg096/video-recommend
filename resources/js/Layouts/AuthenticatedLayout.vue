@@ -2,8 +2,6 @@
 import { ref } from 'vue';
 import NavBar from '@/Components/NavBar.vue';
 
-const showingNavigationDropdown = ref(false);
-
 
 </script>
 

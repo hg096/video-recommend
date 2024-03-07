@@ -1,6 +1,8 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, usePage } from '@inertiajs/vue3';
+import { ref } from "vue";
+
 
 defineProps({
     canLogin: {
@@ -18,12 +20,27 @@ defineProps({
         required: true,
     },
 });
+
+const userAuth = ref(null);
+userAuth.value = usePage().props.auth.user || null;
+
+
 </script>
 
 <template>
     <Head title="Welcome" />
 
     <AuthenticatedLayout>
+
+        <div>
+            <div v-if="userAuth" >
+                로그인
+            </div>
+
+            <div v-else >
+                비로그인
+            </div>
+        </div>
 
     </AuthenticatedLayout>
 </template>

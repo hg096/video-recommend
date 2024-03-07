@@ -10,7 +10,6 @@ import { Link, usePage } from "@inertiajs/vue3";
 const showingNavigationDropdown = ref(false);
 
 const userAuth = ref(null);
-
 userAuth.value = usePage().props.auth.user || null;
 
 </script>

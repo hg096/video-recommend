@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 class UserFactory extends Factory
 {
     /**
+     * 더미데이터 추가 테스트 o
      * The current password being used by the factory.
      */
     protected static ?string $password;

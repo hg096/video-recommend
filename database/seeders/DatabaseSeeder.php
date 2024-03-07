@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
+     * 더미데이터 추가 테스트용 x
      * Seed the application's database.
      */
     public function run(): void

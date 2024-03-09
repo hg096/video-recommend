@@ -46,6 +46,7 @@ class User extends Authenticatable
 
     public function recommend()
     {
+        // 일대다 >> 일
         return $this->hasMany(Recommend::class);
     }
 

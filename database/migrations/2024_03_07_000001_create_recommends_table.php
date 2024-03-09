@@ -15,13 +15,12 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
             $table->string('url');
             $table->boolean('is_ad')->default(false);
 
-
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('reco_category_id')->nullable()->constrained('reco_categories');
+            // $table->foreignId('reco_category_id')->nullable()->constrained('reco_categories');
         });
     }
 

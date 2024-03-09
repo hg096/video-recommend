@@ -8,10 +8,12 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * 추천 리스트 보관용
      */
     public function up(): void
     {
-        Schema::create('reco_categories', function (Blueprint $table) {
+        Schema::create('list_reco_categories', function (Blueprint $table) {
             $table->id();
             $table->string('category')->unique();
             $table->timestamps();
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reco_categories');
+        Schema::dropIfExists('list_reco_categories');
     }
 };

@@ -12,13 +12,25 @@ const showingNavigationDropdown = ref(false);
 const userAuth = ref(null);
 userAuth.value = usePage().props.auth.user || null;
 
+// 프로필 링크
+const listProfiles = ref({});
+listProfiles.value = {
+    프로필: "profile.edit",
+    나의추천: "MyRecommend",
+};
+
+// 홈 링크
+const listLinks = ref({});
+listLinks.value = {
+    홈: "home",
+    대시보드: "dashboard",
+};
 </script>
 
 <template>
     <nav
         class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700"
     >
-
         <!-- 로그인 -->
         <div v-if="userAuth">
             <!-- PC -->
@@ -37,12 +49,13 @@ userAuth.value = usePage().props.auth.user || null;
                         <!-- Navigation Links -->
                         <div
                             class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex"
+                            v-for="(value, key) in listLinks"
                         >
                             <NavLink
-                                :href="route('dashboard')"
-                                :active="route().current('dashboard')"
+                                :href="route(value)"
+                                :active="route().current(value)"
                             >
-                                Dashboard
+                                {{ key }}
                             </NavLink>
                         </div>
                     </div>
@@ -76,9 +89,12 @@ userAuth.value = usePage().props.auth.user || null;
                                 </template>
 
                                 <template #content>
-                                    <DropdownLink :href="route('profile.edit')">
-                                        프로필
-                                    </DropdownLink>
+                                    <div v-for="(value, key) in listProfiles">
+                                        <DropdownLink :href="route(value)">
+                                            {{ key }}
+                                        </DropdownLink>
+                                    </div>
+
                                     <DropdownLink
                                         :href="route('logout')"
                                         method="post"
@@ -142,12 +158,16 @@ userAuth.value = usePage().props.auth.user || null;
                 }"
                 class="sm:hidden"
             >
-                <div class="pt-2 pb-3 space-y-1">
+
+                <div
+                    class="pt-2 pb-3 space-y-1"
+                    v-for="(value, key) in listLinks"
+                >
                     <ResponsiveNavLink
-                        :href="route('dashboard')"
-                        :active="route().current('dashboard')"
+                        :href="route(value)"
+                        :active="route().current(value)"
                     >
-                        Dashboard
+                        {{ key }}
                     </ResponsiveNavLink>
                 </div>
 
@@ -167,9 +187,12 @@ userAuth.value = usePage().props.auth.user || null;
                     </div>
 
                     <div class="mt-3 space-y-1">
-                        <ResponsiveNavLink :href="route('profile.edit')">
-                            프로필
-                        </ResponsiveNavLink>
+                        <div v-for="(value, key) in listProfiles">
+                            <ResponsiveNavLink :href="route(value)">
+                                {{ key }}
+                            </ResponsiveNavLink>
+                        </div>
+
                         <ResponsiveNavLink
                             :href="route('logout')"
                             method="post"

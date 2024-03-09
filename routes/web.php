@@ -23,7 +23,16 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('home');
+
+Route::get('/my-recommend', function () {
+    return Inertia::render('MyRecommend');
+})->name('MyRecommend');
+Route::get('/my-recommend-add', function () {
+    return Inertia::render('MyRecommendAdd');
+})->name('MyRecommend.add');
+
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

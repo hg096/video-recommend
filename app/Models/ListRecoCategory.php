@@ -5,21 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Recommend extends Model
+class ListRecoCategory extends Model
 {
     use HasFactory;
 
 
-
-    public function user()
-    {
-        // 일대다 >> 다
-        return $this->belongsTo(User::class);
-    }
-
     public function recoCategory()
     {
-        // 일대다 >> 일
+        // 일대다 >> 다
         return $this->hasMany(RecoCategory::class);
     }
 

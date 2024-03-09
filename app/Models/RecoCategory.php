@@ -11,8 +11,9 @@ class RecoCategory extends Model
 
 
 
-    public function recommend()
+    public function listRecoCategory()
     {
-        return $this->hasMany(Recommend::class);
+        // 일대다 >> 일
+        return $this->belongsTo(RecoCategory::class);
     }
 }

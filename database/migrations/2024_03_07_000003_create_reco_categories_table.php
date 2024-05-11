@@ -18,7 +18,8 @@ return new class extends Migration
             // $table->string('category');
             $table->timestamps();
 
-            $table->foreignId('list_reco_categories_id')->constrained('list_reco_categories');
+            $table->string('categories');
+            // $table->foreignId('list_reco_categories_id')->constrained('list_reco_categories');
             $table->foreignId('recommend_id')->constrained('recommends');
         });
     }

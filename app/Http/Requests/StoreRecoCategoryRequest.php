@@ -22,7 +22,8 @@ class StoreRecoCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'categories' => 'required|string',
+            'recommend_id' => 'required',
         ];
     }
 }

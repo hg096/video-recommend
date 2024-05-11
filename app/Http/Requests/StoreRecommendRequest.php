@@ -22,7 +22,10 @@ class StoreRecommendRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:10',
+            'description' => 'required|string',
+            'url' => 'required|string',
+            'is_ad' => 'nullable|string',
         ];
     }
 }

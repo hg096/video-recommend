@@ -9,6 +9,10 @@ class RecoCategory extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'categories',
+    ];
+
 
 
     public function listRecoCategory()

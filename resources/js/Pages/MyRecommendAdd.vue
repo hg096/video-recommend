@@ -20,12 +20,12 @@ const form = useForm({
 });
 
 const submit = () => {
-    console.log(form.description);
-    console.log(form.categoryLists);
+    // console.log(form.description);
+    // console.log(form.categoryLists);
 
-    // form.post(route('login'), {
-    //     onFinish: () => form.reset('password'),
-    // });
+    form.post(route('MyRecommend.add_post'), {
+        // onFinish: () => form.reset('password'),
+    });
 };
 </script>
 
@@ -70,12 +70,13 @@ const submit = () => {
                     <div class="my-2">
                         <InputLabel
                             for="categoryLists"
-                            value="카테고리 (5개까지)"
+                            value="카테고리 (2개까지)"
                         />
                         <TextTagInput
                             id="categoryLists"
                             :tagLists="form.categoryLists"
                             class="mt-1 block w-full"
+                            :tagMaxLang=2
                         ></TextTagInput>
                         <InputError
                             class="mt-2"

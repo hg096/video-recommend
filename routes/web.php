@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -28,9 +29,23 @@ Route::get('/', function () {
 Route::get('/my-recommend', function () {
     return Inertia::render('MyRecommend');
 })->name('MyRecommend');
+
 Route::get('/my-recommend-add', function () {
-    return Inertia::render('MyRecommendAdd');
+
+    return Inertia::render('MyRecommendAdd', []);
 })->name('MyRecommend.add');
+
+Route::post('/my-recommend-add', function (Request $request) {
+
+    echo "<pre>";
+    print_r($request->all());
+    echo "</pre>";
+    exit;
+
+
+
+    // return Inertia::render('MyRecommendAdd', []);
+})->name('MyRecommend.add_post');
 
 
 

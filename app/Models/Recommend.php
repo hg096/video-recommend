@@ -9,6 +9,12 @@ class Recommend extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'url',
+        'description',
+        'is_ad',
+    ];
 
 
     public function user()

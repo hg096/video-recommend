@@ -29,7 +29,12 @@ class RecommendController extends Controller
      */
     public function store(StoreRecommendRequest $request)
     {
-        //
+        $Recommend = Recommend::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'url' => $request->url,
+            'is_ad' => empty( $request->is_ad) ? $request->is_ad : 0,
+        ]);
     }
 
     /**

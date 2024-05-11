@@ -29,7 +29,11 @@ class RecoCategoryController extends Controller
      */
     public function store(StoreRecoCategoryRequest $request)
     {
-        //
+        $Recommend = RecoCategory::create([
+            'categories' => $request->categories,
+            'recommend_id' => $request->recommend_id,
+        ]);
+
     }
 
     /**
